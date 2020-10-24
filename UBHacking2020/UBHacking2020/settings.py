@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'UBHacking2020.EasyOrder.Templates.EasyOrder',
+    'EasyOrder',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

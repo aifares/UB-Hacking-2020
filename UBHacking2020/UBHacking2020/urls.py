@@ -15,14 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
 from EasyOrder import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('EasyOrder', views.home,name="home"),
-    path('EasyOrder', views.menu,name="menu"),
-    path('EasyOrder', views.checkout,name="checkout")
+    path('', views.home,name="home"),
+    path('/menu', views.menu,name="menu"),
+    path('/checkout', views.checkout,name="checkout")
 
 
 ]

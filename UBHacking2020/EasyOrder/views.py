@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from UBHacking2020.EasyOrder.forms import RestaurantsCode
+
+
 
 
 
@@ -6,7 +9,7 @@ from django.shortcuts import render, redirect
 
 def home(request):
     context= {}
-    template= "home.html"
+    template= "EasyOrder/home.html"
     return render(request, template, context)
 
 def menu(request):

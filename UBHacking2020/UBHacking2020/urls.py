@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from UBHacking2020.EasyOrder import views
+
+from EasyOrder import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path()
+    path('EasyOrder', views.home,name="home"),
+    path('EasyOrder', views.menu,name="menu"),
+    path('EasyOrder', views.checkout,name="checkout")
+
+
 ]

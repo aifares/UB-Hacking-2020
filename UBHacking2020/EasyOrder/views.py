@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import RestaurantsCode
+from .models import Restaurant , Product
 
 
 
@@ -8,9 +9,23 @@ from .forms import RestaurantsCode
 
 def home(request):
     form = RestaurantsCode(request.POST or None)
-    print (form['Code'].value())
+
     context= {"form":form}
     template= "EasyOrder/home.html"
+
+    code = form['Code'].value()
+    print(code)
+    if form.is_valid():
+        ResObject =  Restaurant.objects.get(RestaurantCode = code)
+
+
+        return render(request, menu, context)
+        print(Product.objects.get(Restaurant = ResObject).Items)
+    else:
+        return render(request, template, context)
+
+    context= {"form":form}
+
     return render(request, template, context)
 
 def menu(request):

@@ -9,6 +9,6 @@ class RestaurantsCode(forms.Form):
     def clean_code(self):
         code = self.cleaned_data.get("Code")
         try:
-            Restaurant.objects.get(code = Restaurant.RestaurantCode)
+            Restaurant.objects.get(RestaurantCode = code)
         except Restaurant.DoesNotExist:
             raise forms.ValidationError("Restaurant Does Not Exist")

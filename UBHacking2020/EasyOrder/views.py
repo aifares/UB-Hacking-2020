@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from UBHacking2020.EasyOrder.forms import RestaurantsCode
-
+from .forms import RestaurantsCode
 
 
 
@@ -8,7 +7,9 @@ from UBHacking2020.EasyOrder.forms import RestaurantsCode
 # Create your views here.
 
 def home(request):
-    context= {}
+    form = RestaurantsCode(request.POST or None)
+    print (form['Code'].value())
+    context= {"form":form}
     template= "EasyOrder/home.html"
     return render(request, template, context)
 

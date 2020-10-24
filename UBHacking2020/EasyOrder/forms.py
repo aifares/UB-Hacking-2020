@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib import messages
-from UBHacking2020.EasyOrder import models
+from .models import Restaurant
 
 
 class RestaurantsCode(forms.Form):
@@ -9,6 +9,6 @@ class RestaurantsCode(forms.Form):
     def clean_code(self):
         code = self.cleaned_data.get("Code")
         try:
-            models.Restaurant.objects.get(code = models.Restaurant.RestaurantCode)
-        except models.Restaurant.DoesNotExist:
+            Restaurant.objects.get(code = Restaurant.RestaurantCode)
+        except Restaurant.DoesNotExist:
             raise forms.ValidationError("Restaurant Does Not Exist")

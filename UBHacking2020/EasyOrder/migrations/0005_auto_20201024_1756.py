@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('EasyOrder', '0004_menu_restaurantcode'),
+        ('UBHacking2020.EasyOrder.Templates.EasyOrder', '0004_menu_restaurantcode'),
     ]
 
     operations = [
@@ -18,11 +18,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='menu',
             name='Products',
-            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.PROTECT, to='EasyOrder.Product'),
+            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.PROTECT, to='UBHacking2020.EasyOrder.Templates.EasyOrder.Product'),
         ),
         migrations.AlterField(
             model_name='menu',
             name='RestaurantMenu',
-            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.PROTECT, to='EasyOrder.Restaurant'),
+            field=models.ForeignKey(default=None, on_delete=django.db.models.deletion.PROTECT, to='UBHacking2020.EasyOrder.Templates.EasyOrder.Restaurant'),
         ),
     ]

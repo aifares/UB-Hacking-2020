@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('EasyOrder', '0003_menu_products'),
+        ('UBHacking2020.EasyOrder.Templates.EasyOrder', '0003_menu_products'),
     ]
 
     operations = [

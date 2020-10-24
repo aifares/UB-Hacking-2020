@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('EasyOrder', '0001_initial'),
+        ('UBHacking2020.EasyOrder.Templates.EasyOrder', '0001_initial'),
     ]
 
     operations = [
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('Items', models.CharField(blank=True, max_length=100, null=True)),
                 ('Description', models.CharField(blank=True, max_length=1000, null=True)),
                 ('Image', models.ImageField(blank=True, null=True, upload_to='')),
-                ('Menu', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='EasyOrder.Menu')),
+                ('Menu', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='UBHacking2020.EasyOrder.Templates.EasyOrder.Menu')),
             ],
         ),
     ]

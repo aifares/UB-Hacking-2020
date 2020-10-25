@@ -45,19 +45,11 @@ def home(request):
 
 
         if "checkout" in request.POST:
-            pass
-
-
-
-
-
-
-
-
-
-
-
-
+            codes = request.POST['codes2']
+            ResObject =  Restaurant.objects.get(RestaurantCode = codes)
+            products = Product.objects.filter(Restaurant = ResObject)
+            context= {"form":form, "ResObject" : ResObject, "products":products}
+            return render(request, "EasyOrder/checkout.html", context)
 
 
 

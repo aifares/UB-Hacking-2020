@@ -20,7 +20,7 @@ from EasyOrder import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home,name="home"),
-    path('menu', views.menu,name="menu"),
+    path('Menu/', views.menu,name="menu"),
     path('checkout', views.checkout,name="checkout")
 
 

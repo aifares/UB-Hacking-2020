@@ -1,10 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #dddddd}
+
+        .button {
+            transition-duration: 0.4s;
+        }
+
+        .button:hover {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+
+    </style>
 </head>
-<body>
+<body style="  background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
+    background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+    background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+    background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+    background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);">
+
+<h2>Menu</h2>
+
+<div style="overflow-x:auto;">
+    <table>
+        <tr>
+            <th></th>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="name1" />&nbsp;</td>
+            <td>3 Hot Dogs</td>
+            <td>$8</td>
+            <td>Boiled with a choice of BBQ, Ketchup or Mustard</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="name1" />&nbsp;</td>
+            <td>2 Hamburger Buns</td>
+            <td>$10</td>
+            <td>Seasemed with Toasted Buns</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="name1" />&nbsp;</td>
+            <td>Chicken Quesadilla</td>
+            <td>$7</td>
+            <td>White or Wheat Quesadilla</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="name1" />&nbsp;</td>
+            <td>Bacon Egg and Chees</td>
+            <td>$4</td>
+            <td>On a Bagel or English Muffin or Bread</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="name1" />&nbsp;</td>
+            <td>Egg and Cheese Omelete</td>
+            <td>$4</td>
+            <td>On white or Wheat</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="name1" />&nbsp;</td>
+            <td>5 Spicy Wings</td>
+            <td>$10</td>
+            <td>Sauce Choice of BBQ, Medium or Spicy</td>
+        </tr>
+    </table>
+    <p><button class="button" style="background-color: #f53900; border-radius: 8px; ">Add to Cart</button></p>
+
+</div>
 
 </body>
 </html>

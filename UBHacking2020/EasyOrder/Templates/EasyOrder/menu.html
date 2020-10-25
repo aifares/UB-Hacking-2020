@@ -1,7 +1,7 @@
 {% load static %}
 
 <html>
-<title>W3.CSS Template</title>
+<title>EasyOrder</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -59,11 +59,12 @@
 
         <div id="Pizza" class="w3-container menu w3-padding-32 w3-white">
             <form method="POST">
+                {{ResObj.RestaurantCode}}
                 {%csrf_token%}
                 {% for food in products %}
                 <h1><b>{{ food.Items }}</b> <span class="w3-right w3-tag w3-dark-grey w3-round">{{ food.Price }}</span> </h1>
                 <p class="w3-text-grey">{{ food.Description}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="hidden" name="code" value = "{{ResObj.RestaurantCode}}">
+                    <input type="hidden" name="codes" value = "0000">
                     <button class="btn" name="addtocart" value='{{ food.Items }} {{ food.Price }}'>add to cart</button> </p>
                 <hr>
                 {% endfor %}

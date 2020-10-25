@@ -27,14 +27,19 @@ def home(request):
 
         if "addtocart" in request.POST:
             print(request.POST)
+            Temp.append(request.POST["addtocart"])
+            print("HELLO")
+            print(Temp)
 
 
 
-            code = request.POST['code']
-            ResObject =  Restaurant.objects.get(RestaurantCode = code)
+            codes = request.POST['codes']
+            ResObject =  Restaurant.objects.get(RestaurantCode = codes)
             products = Product.objects.filter(Restaurant = ResObject)
             context= {"form":form, "ResObject" : ResObject, "products":products}
             return render(request, "EasyOrder/menu.html", context)
+
+
 
 
 

@@ -19,7 +19,7 @@ def home(request):
         print(code)
         if form.is_valid():
             ResObject =  Restaurant.objects.get(RestaurantCode = code)
-            products = Product.objects.get(Restaurant = ResObject)
+            products = Product.objects.filter(Restaurant = ResObject)
             context= {"form":form, "ResObject" : ResObject, "products":products}
 
 

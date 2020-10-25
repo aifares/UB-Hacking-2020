@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,41 +48,43 @@
             <th>Description</th>
         </tr>
         <tr>
+            {% for food in products %}
             <td><input type="checkbox" name="name1" />&nbsp;</td>
-            <td>3 Hot Dogs</td>
-            <td>$8</td>
-            <td>Boiled with a choice of BBQ, Ketchup or Mustard</td>
+            <td>{{ food.Items }}</td>
+            <td>{{ food.Price }}</td>
+            <td>{{ food.Description}}</td>
         </tr>
-        <tr>
-            <td><input type="checkbox" name="name1" />&nbsp;</td>
-            <td>2 Hamburger Buns</td>
-            <td>$10</td>
-            <td>Seasemed with Toasted Buns</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="name1" />&nbsp;</td>
-            <td>Chicken Quesadilla</td>
-            <td>$7</td>
-            <td>White or Wheat Quesadilla</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="name1" />&nbsp;</td>
-            <td>Bacon Egg and Chees</td>
-            <td>$4</td>
-            <td>On a Bagel or English Muffin or Bread</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="name1" />&nbsp;</td>
-            <td>Egg and Cheese Omelete</td>
-            <td>$4</td>
-            <td>On white or Wheat</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="name1" />&nbsp;</td>
-            <td>5 Spicy Wings</td>
-            <td>$10</td>
-            <td>Sauce Choice of BBQ, Medium or Spicy</td>
-        </tr>
+<!--        <tr>-->
+<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
+<!--            <td>2 Hamburger Buns</td>-->
+<!--            <td>$10</td>-->
+<!--            <td>Seasemed with Toasted Buns</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
+<!--            <td>Chicken Quesadilla</td>-->
+<!--            <td>$7</td>-->
+<!--            <td>White or Wheat Quesadilla</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
+<!--            <td>Bacon Egg and Chees</td>-->
+<!--            <td>$4</td>-->
+<!--            <td>On a Bagel or English Muffin or Bread</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
+<!--            <td>Egg and Cheese Omelete</td>-->
+<!--            <td>$4</td>-->
+<!--            <td>On white or Wheat</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
+<!--            <td>5 Spicy Wings</td>-->
+<!--            <td>$10</td>-->
+<!--            <td>Sauce Choice of BBQ, Medium or Spicy</td>-->
+<!--        </tr>-->
+        {% endfor %}
     </table>
     <p><button class="button" style="background-color: #f53900; border-radius: 8px; ">Add to Cart</button></p>
 

@@ -1,99 +1,155 @@
 {% load static %}
-<!DOCTYPE html>
+
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
+<title>EasyOrder</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<style>
+    body, html {height: 100%}
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif }
+    .menu {display: none}
+    .bgimg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 90%;
+    }
 
-        table {
-            border-collapse: collapse;
-            border-spacing: 0;
-            width: 100%;
-            border: 1px solid #ddd;
+    .w3-container menu w3-padding-32 w3-white.btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #f1f1f1;
+        color: black;
+        font-size: 16px;
+        padding: 16px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+    }
 
-        }
+    .w3-container menu w3-padding-32 w3-white.btn:hover {
+        background-color: black;
+        color: white;
+    }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
-        }
 
-        tr:nth-child(even){background-color: #dddddd}
+</style>
+<body>
+<!-- Menu Container -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+    <div class="w3-content">
 
-        .button {
-            transition-duration: 0.4s;
-        }
+        <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h1>
+        <div class="w3-row w3-center w3-border w3-border-dark-grey">
+            <a href="javascript:void(0)" onclick="openMenu(event, 'Pizza');" id="myLink">
+                <div class="w3-col s4 tablink w3-padding-large w3-hover-#f53900">Dishes</div>
+            </a>
+            <a href="javascript:void(0)" onclick="openMenu(event, 'Pasta');">
+                <div class="w3-col s4 tablink w3-padding-large w3-hover-#f53900">Salads</div>
+            </a>
+            <a href="javascript:void(0)" onclick="openMenu(event, 'Starter');">
+                <div class="w3-col s4 tablink w3-padding-large w3-hover-#f53900">Starter</div>
+            </a>
+        </div>
 
-        .button:hover {
-            background-color: #4CAF50; /* Green */
-            color: white;
-        }
-
-    </style>
-</head>
-<body style="  background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
-    background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-    background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);">
-
-<h2>Menu</h2>
-
-<div style="overflow-x:auto;">
-    <table>
-        <tr>
-            <th></th>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <form method = post>
+        <div id="Pizza" class="w3-container menu w3-padding-32 w3-white">
+            <form method="POST">
+                {{ResObj.RestaurantCode}}
                 {%csrf_token%}
-            {% for food in products %}
+                {% for food in products %}
+                <h1><b>{{ food.Items }}</b> <span class="w3-right w3-tag w3-dark-grey w3-round">{{ food.Price }}</span> </h1>
+                <p class="w3-text-grey">{{ food.Description}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="hidden" name="codes" value = "0000">
+                    <button class="btn" name="addtocart" value='{{ food.Items }} {{ food.Price }}'>add to cart</button> </p>
+                <hr>
+                {% endfor %}
+            </form>
+            <form method="post">
+                {%csrf_token%}
+                <input type="hidden" name="codes2" value = "0000">
 
-            <td><input type="checkbox" name="name1" value= "{{food.slug}},{{food.Price}}" /></td>
+                <div> <p><button name="checkout" class="w3-button w3-black w3-round-xxlarge" >Checkout</button></p> </div>
+            </form>
 
-            <td>{{ food.Items }}</td>
-            <td>{{ food.Price }}</td>
-            <td>{{ food.Description}}</td>
-        </tr>
-<!--        <tr>-->
-<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
-<!--            <td>2 Hamburger Buns</td>-->
-<!--            <td>$10</td>-->
-<!--            <td>Seasemed with Toasted Buns</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
-<!--            <td>Chicken Quesadilla</td>-->
-<!--            <td>$7</td>-->
-<!--            <td>White or Wheat Quesadilla</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
-<!--            <td>Bacon Egg and Chees</td>-->
-<!--            <td>$4</td>-->
-<!--            <td>On a Bagel or English Muffin or Bread</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
-<!--            <td>Egg and Cheese Omelete</td>-->
-<!--            <td>$4</td>-->
-<!--            <td>On white or Wheat</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td><input type="checkbox" name="name1" />&nbsp;</td>-->
-<!--            <td>5 Spicy Wings</td>-->
-<!--            <td>$10</td>-->
-<!--            <td>Sauce Choice of BBQ, Medium or Spicy</td>-->
-<!--        </tr>-->
-        {% endfor %}
-    </table>
-    <p><button class="button" name = "menu" style="background-color: #f53900; border-radius: 8px; ">Add to Cart</button></p>
-    </form>
+        </div>
 
+
+
+        <div id="Pasta" class="w3-container menu w3-padding-32 w3-white">
+            <h1><b>Lasagna</b> <span class="w3-tag w3-grey w3-round">Popular</span> <span class="w3-right w3-tag w3-dark-grey w3-round">$13.50</span></h1>
+            <p class="w3-text-grey">Special sauce, mozzarella, parmesan, ground beef</p>
+            <hr>
+
+            <h1><b>Ravioli</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$14.50</span></h1>
+            <p class="w3-text-grey">Ravioli filled with cheese</p>
+            <hr>
+
+            <h1><b>Spaghetti Classica</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$11.00</span></h1>
+            <p class="w3-text-grey">Fresh tomatoes, onions, ground beef</p>
+            <hr>
+
+            <h1><b>Seafood pasta</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$25.50</span></h1>
+            <p class="w3-text-grey">Salmon, shrimp, lobster, garlic</p>
+
+            <form method="post">
+                {%csrf_token%}
+                <input type="hidden" name="codes2" value = "0000">
+
+                <div> <p><button name="checkout" class="w3-button w3-black w3-round-xxlarge" >Checkout</button></p> </div>
+            </form>
+        </div>
+
+
+        <div id="Starter" class="w3-container menu w3-padding-32 w3-white">
+            <h1><b>Today's Soup</b> <span class="w3-tag w3-grey w3-round">Seasonal</span><span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+            <p class="w3-text-grey">Ask the waiter</p>
+            <hr>
+
+            <h1><b>Bruschetta</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$8.50</span></h1>
+            <p class="w3-text-grey">Bread with pesto, tomatoes, onion, garlic</p>
+            <hr>
+
+            <h1><b>Garlic bread</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$9.50</span></h1>
+            <p class="w3-text-grey">Grilled ciabatta, garlic butter, onions</p>
+            <hr>
+
+            <h1><b>Tomozzarella</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$10.50</span></h1>
+            <p class="w3-text-grey">Tomatoes and mozzarella</p>
+
+            <form method="post">
+                {%csrf_token%}
+                <input type="hidden" name="codes2" value = "0000">
+
+                <div> <p><button name="checkout" class="w3-button w3-black w3-round-xxlarge" >Checkout</button></p> </div>
+            </form>
+        </div><br>
+
+    </div>
 </div>
+
+
+<script>
+    // Tabbed Menu
+    function openMenu(evt, menuName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("menu");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+        }
+        document.getElementById(menuName).style.display = "block";
+        evt.currentTarget.firstElementChild.className += " w3-red";
+    }
+    document.getElementById("myLink").click();
+</script>
 
 </body>
 </html>

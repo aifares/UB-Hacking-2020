@@ -2,6 +2,11 @@ from django.db import models
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
+
+
+
+
+
 class Restaurant(models.Model):
     RestaurantCode = models.CharField(max_length=100)
     RestaurantName = models.CharField(max_length=100)
@@ -39,4 +44,8 @@ class Cart(models.Model):
     time_stamp = models.DateTimeField(auto_now_add=True, auto_now= False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     active = models.BooleanField(default=True)
+
+
+
+
 

@@ -17,10 +17,13 @@ def home(request):
     print(code)
     if form.is_valid():
         ResObject =  Restaurant.objects.get(RestaurantCode = code)
+        products = Product.objects.get(Restaurant = ResObject)
+        context= {"form":form, "ResObject" : ResObject, "products":products}
 
 
-        return render(request, menu, context)
-        print(Product.objects.get(Restaurant = ResObject).Items)
+
+
+        return render(request, "EasyOrder/menu.html", context)
     else:
         return render(request, template, context)
 

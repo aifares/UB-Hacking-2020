@@ -47,7 +47,7 @@
         <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h1>
         <div class="w3-row w3-center w3-border w3-border-dark-grey">
             <a href="javascript:void(0)" onclick="openMenu(event, 'Pizza');" id="myLink">
-                <div class="w3-col s4 tablink w3-padding-large w3-hover-#f53900">Pizza</div>
+                <div class="w3-col s4 tablink w3-padding-large w3-hover-#f53900">Dishes</div>
             </a>
             <a href="javascript:void(0)" onclick="openMenu(event, 'Pasta');">
                 <div class="w3-col s4 tablink w3-padding-large w3-hover-#f53900">Salads</div>
@@ -63,14 +63,22 @@
                 {%csrf_token%}
                 {% for food in products %}
                 <h1><b>{{ food.Items }}</b> <span class="w3-right w3-tag w3-dark-grey w3-round">{{ food.Price }}</span> </h1>
-                <p class="w3-text-grey">{{ food.Description}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <p class="w3-text-grey">{{ food.Description}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="hidden" name="codes" value = "0000">
                     <button class="btn" name="addtocart" value='{{ food.Items }} {{ food.Price }}'>add to cart</button> </p>
                 <hr>
                 {% endfor %}
             </form>
+            <form method="post">
+                {%csrf_token%}
+                <input type="hidden" name="codes2" value = "0000">
+
+                <div> <p><button name="checkout" class="w3-button w3-black w3-round-xxlarge" >Checkout</button></p> </div>
+            </form>
 
         </div>
+
+
 
         <div id="Pasta" class="w3-container menu w3-padding-32 w3-white">
             <h1><b>Lasagna</b> <span class="w3-tag w3-grey w3-round">Popular</span> <span class="w3-right w3-tag w3-dark-grey w3-round">$13.50</span></h1>
@@ -87,6 +95,13 @@
 
             <h1><b>Seafood pasta</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$25.50</span></h1>
             <p class="w3-text-grey">Salmon, shrimp, lobster, garlic</p>
+
+            <form method="post">
+                {%csrf_token%}
+                <input type="hidden" name="codes2" value = "0000">
+
+                <div> <p><button name="checkout" class="w3-button w3-black w3-round-xxlarge" >Checkout</button></p> </div>
+            </form>
         </div>
 
 
@@ -105,6 +120,13 @@
 
             <h1><b>Tomozzarella</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$10.50</span></h1>
             <p class="w3-text-grey">Tomatoes and mozzarella</p>
+
+            <form method="post">
+                {%csrf_token%}
+                <input type="hidden" name="codes2" value = "0000">
+
+                <div> <p><button name="checkout" class="w3-button w3-black w3-round-xxlarge" >Checkout</button></p> </div>
+            </form>
         </div><br>
 
     </div>

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import RestaurantsCode
 from .models import Restaurant , Product,Cart,CartItem
 from .forms import Temp
+import os
+from twilio.rest import Client
 
 
 
@@ -45,11 +47,25 @@ def home(request):
 
 
         if "checkout" in request.POST:
-            codes = request.POST['codes2']
+            print(request.POST)
+            codes = request.POST['codes']
             ResObject =  Restaurant.objects.get(RestaurantCode = codes)
             products = Product.objects.filter(Restaurant = ResObject)
             context= {"form":form, "ResObject" : ResObject, "products":products}
             return render(request, "EasyOrder/checkout.html", context)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -80,4 +96,28 @@ def checkout(request,slug):
     context={}
     template= "EasyOrder/checkout.html"
     return render(request, template, context)
+
+
+
+
+
+
+def sendMessage(number, order):
+    account_sid = "AC7b4d732d64b3e0e890bec89fdaeb9070"
+    auth_token = '4b17ed563afde38cffe8cc781a413c7f'
+
+    client = Client(account_sid, auth_token)
+
+    total = 0
+    for item in order:
+        total += float(item[1])
+
+    totalString = str(total)
+
+    client.messages.create(from_='+13125844903',
+                           to=number,
+                           body="Your order has been created. Your total is: $" + totalString)
+
+
+sendMessage("NUMBER GOES HERE", [["Tempura Bass Buns" , "18.00"], ["Spiced Chicken Empanadas", "8.95"], ["Crispy Herb Fries" , "7.95"]])
 

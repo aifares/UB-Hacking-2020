@@ -108,16 +108,18 @@ def sendMessage(number, order):
 
     client = Client(account_sid, auth_token)
 
-    total = 0
+    subTotal = 0
     for item in order:
-        total += float(item[1])
+        subTotal += float(item[1])
+    tax = subTotal *.08
+    total = subTotal + tax
 
-    totalString = str(total)
+    subtotalString = "%.2f" % subTotal
+    taxString = "%.2f" % tax
+    totalString = "%.2f" % total
 
     client.messages.create(from_='+13125844903',
                            to=number,
-                           body="Your order has been created. Your total is: $" + totalString)
+                           body="Your order has been created\nYour subtotal is: $" + subtotalString + "\nYour tax is: $" + taxString + "\nYour total is: $" +totalString)
 
-
-sendMessage("NUMBER GOES HERE", [["Tempura Bass Buns" , "18.00"], ["Spiced Chicken Empanadas", "8.95"], ["Crispy Herb Fries" , "7.95"]])
 

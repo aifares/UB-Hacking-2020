@@ -4,15 +4,7 @@ User = get_user_model()
 
 
 
-class Category(models.Model):
-    name = models.CharField(max_length = 128)
 
-
-
-options = Category.objects.all().values_list('name','name')
-arr = []
-for i in options:
-    arr.append(i)
 
 
 class Restaurant(models.Model):
@@ -30,7 +22,6 @@ class Product(models.Model):
     Description = models.CharField(max_length=1000,blank=True, null=True)
     Image = models.ImageField(blank=True, null=True)
     slug = models.SlugField(null = True,blank = True)
-    category = models.CharField(max_length=128, choices=arr)
 
     def __str__(self):
         return "%s, %s, %s" %(self.Items, self.Price, self.Description)

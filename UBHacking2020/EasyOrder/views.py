@@ -26,6 +26,7 @@ def home(request):
 
 
         if "addtocart" in request.POST:
+            print(request.POST)
 
 
 

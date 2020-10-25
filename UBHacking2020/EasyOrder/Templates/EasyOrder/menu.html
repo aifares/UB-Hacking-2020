@@ -48,11 +48,11 @@
             <th>Description</th>
         </tr>
         <tr>
+
+            {% for food in products %}
             <form method = post>
                 {%csrf_token%}
-            {% for food in products %}
-
-            <td><input type="checkbox" name="name1" value= "{{food.slug}},{{food.Price}}" /></td>
+            <td><input type="checkbox" name="name1" value = "{{food.slug}} {{food.Price}}"/></td>
 
             <td>{{ food.Items }}</td>
             <td>{{ food.Price }}</td>
@@ -90,6 +90,7 @@
 <!--        </tr>-->
         {% endfor %}
     </table>
+    <input type="hidden" name="code" value="{{ResObject.RestaurantCode}}"
     <p><button class="button" name = "menu" style="background-color: #f53900; border-radius: 8px; ">Add to Cart</button></p>
     </form>
 

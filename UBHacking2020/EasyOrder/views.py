@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import RestaurantsCode
 from .models import Restaurant , Product,Cart,CartItem
+from .forms import Temp
 
 
 
@@ -24,12 +25,26 @@ def home(request):
 
 
 
-        if "menu" in request.POST:
-            carList= []
-            print(request.POST)
-            print(request.POST['name1'])
-            carList.append(request.POST['name1'])
-            print(carList)
+        if "addtocart" in request.POST:
+
+
+
+            code = request.POST['code']
+            ResObject =  Restaurant.objects.get(RestaurantCode = code)
+            products = Product.objects.filter(Restaurant = ResObject)
+            context= {"form":form, "ResObject" : ResObject, "products":products}
+            return render(request, "EasyOrder/menu.html", context)
+
+
+
+
+        if "checkout" in request.POST:
+            pass
+
+
+
+
+
 
 
 

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib import messages
 from .models import Restaurant
 
+Temp = []
 
 class RestaurantsCode(forms.Form):
     Code = forms.CharField(required=False)

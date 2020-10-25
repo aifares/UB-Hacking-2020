@@ -8,22 +8,24 @@ from .models import Restaurant , Product
 # Create your views here.
 
 def home(request):
+    print(request.POST)
     form = RestaurantsCode(request.POST or None)
 
     context= {"form":form}
     template= "EasyOrder/home.html"
+    if request.method == 'POST':
 
-    code = form['Code'].value()
-    print(code)
-    if form.is_valid():
-        ResObject =  Restaurant.objects.get(RestaurantCode = code)
-        products = Product.objects.get(Restaurant = ResObject)
-        context= {"form":form, "ResObject" : ResObject, "products":products}
+        code = request.POST['code']
+        print(code)
+        if form.is_valid():
+            ResObject =  Restaurant.objects.get(RestaurantCode = code)
+            products = Product.objects.get(Restaurant = ResObject)
+            context= {"form":form, "ResObject" : ResObject, "products":products}
 
 
 
 
-        return render(request, "EasyOrder/menu.html", context)
+            return render(request, "EasyOrder/menu.html", context)
     else:
         return render(request, template, context)
 

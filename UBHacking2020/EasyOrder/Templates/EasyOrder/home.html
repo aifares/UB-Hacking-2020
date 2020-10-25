@@ -1,16 +1,338 @@
-<!DOCTYPE html>
-<html>
+
+<!DOCTYPE html><head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>EasyOrder</title>
+
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Passion+One);
+        @import url(https://fonts.googleapis.com/css?family=Bangers);
+
+
+
+
+        .font-poppins {
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+        }
+
+        /* ==========================================================================
+           #GRID
+           ========================================================================== */
+
+        @media (max-width: 767px) {
+            .col-2 {
+                width: 100%;
+            }
+        }
+
+        html {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        *, *:before, *:after {
+            -webkit-box-sizing: inherit;
+            -moz-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+        body,
+        h1, h2, h3, h4, h5, h6,
+        blockquote, p, pre,
+        dl, dd, ol, ul,
+        figure,
+        hr,
+        fieldset, legend {
+            margin: 0;
+            padding: 0;
+        }
+
+        li > ol,
+        li > ul {
+            margin-bottom: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        fieldset {
+            min-width: 0;
+            /* [1] */
+            border: 0;
+        }
+
+        button {
+            outline: none;
+            background: none;
+            border: none;
+        }
+
+        /* ==========================================================================
+           #PAGE WRAPPER
+           ========================================================================== */
+        .page-wrapper {
+            min-height: 100vh;
+        }
+
+        body {
+            font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 400;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-family: 'Bangers';
+            margin-bottom: 30px;
+            color: #f53900;
+        }
+
+        h2 {
+            font-family: 'Passion One';
+            font-size: 80px;
+            margin-bottom: 30px;
+            color: whitesmoke;
+            border-radius: 0 0 85% 85% / 30%;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+
+        h4 {
+            font-size: 18px;
+        }
+
+        h5 {
+            font-size: 15px;
+        }
+
+        h6 {
+            font-size: 13px;
+        }
+
+        /* ==========================================================================
+           #BACKGROUND
+           ========================================================================== */
+
+        .bg-gra-01 {
+            background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
+            background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+            background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+            background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
+            background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
+        }
+
+        /* ==========================================================================
+           #SPACING
+           ========================================================================== */
+        .p-t-100 {
+            padding-top: 100px;
+        }
+
+        .p-t-180 {
+            padding-top: 180px;
+        }
+
+        .p-t-20 {
+            padding-top: 20px;
+        }
+
+        .p-t-10 {
+            padding-top: 10px;
+        }
+
+        .p-t-30 {
+            padding-top: 30px;
+        }
+
+        .p-b-100 {
+            padding-bottom: 100px;
+        }
+
+        /* ==========================================================================
+           #WRAPPER
+           ========================================================================== */
+        .wrapper {
+            margin: 0 auto;
+        }
+
+        .wrapper--w960 {
+            max-width: 960px;
+        }
+
+        .wrapper--w780 {
+            max-width: 780px;
+        }
+
+        /* ==========================================================================
+           #BUTTON
+           ========================================================================== */
+
+        .btn {
+            position: center;
+            display: inline-block;
+            line-height: 40px;
+            padding: 0 33px;
+            font-family: Poppins, Arial, "Helvetica Neue", sans-serif;
+            cursor: pointer;
+            color: #fff;
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            -moz-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            font-size: 18px;
+        }
+
+        .btn--pill {
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+        }
+
+        .btn--green {
+            background: #f53900;
+        }
+
+        .btn--green:hover {
+            background: #ae0c0d;
+        }
+
+
+
+
+        input {
+            outline: none;
+            margin: 20;
+            border: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            width: 100%;
+            font-size: 30px;
+            font-family: inherit;
+            color: white;
+        }
+
+        .input-group {
+            position: center;
+            margin-bottom: 33px;
+            border-bottom: 1px solid white;
+            height: 30px;
+            color: white;
+
+        }
+
+        .input--style-3 {
+            padding: 5px 0;
+            font-size: 16px;
+            color: #ccc;
+            background: transparent;
+        }
+
+        .input--style-3::-webkit-input-placeholder {
+            /* WebKit, Blink, Edge */
+            color: white;
+        }
+
+        .input--style-3:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: white;
+            opacity: 1;
+        }
+
+        .input--style-3::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: white;
+            opacity: 1;
+        }
+
+        .input--style-3:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: white;
+        }
+
+        .input--style-3:-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: white;
+        }
+        .p-t-10 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            border: 0px solid green;
+        .monospace {
+            font-family: "Lucida Console", Courier, monospace;
+            text-align: center;
+
+        }
+
+        .animate__animated.animate__fadeInLeft {
+            --animate-duration: 10s;
+        }
+        .animate__animated.animate__bounce {
+            --animate-duration: 10s;
+        }
+
+        /* This changes all the animations globally */
+        :root {
+            --animate-duration: 800ms;
+            --animate-delay: 0.9s;
+        }
+
+        document.documentElement.style.setProperty('--animate-duration', '26s');
+
+        // All animations will take half the time to accomplish
+           document.documentElement.style.setProperty('--animate-duration', '20.5s');
+
+
+    </style>
+</head>
 <body>
 
-<h2>Form</h2>
-
-<form action="" method="POST">
-    {%csrf_token%}
-    {{form.as_p}}
-    <input type="submit" value="Submit">
-</form>
-
-<p></p>
-
-</body>
-</html>
+<div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <h1 class="animate__animated animate__fadeInLeft" style="text-align:center">EasyOrder</h1>
+    <div class="wrapper wrapper--w780">
+        <div class="card card-3">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="animate__animated animate__bounce" style="text-align:center">Restaurant Code</h2>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <form action="" method="POST">
+                    <div>
+                        <div class="input-group">
+                            {%csrf_token%}
+                            <input  class="input--style-3 js-datepicker" type="number" placeholder="0000" name="code" style="text-align:center">
+                        </div>
+                    </div>
+                    <div class="p-t-10">
+                        <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
